@@ -1,0 +1,11 @@
+package main;
+
+import java.io.InputStream;
+
+import org.apache.ibatis.io.Resources;
+
+public class MainClass {
+	public static void main(String[] args) {
+		InputStream is = Resources.getResourceAsStream("mybatis/config.xml");
+	}
+}

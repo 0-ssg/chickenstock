@@ -1,0 +1,19 @@
+INDEX VERSION 1.134
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2388528598.index
+\springSample4\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3689391089.index
+\springSample1\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\921189908.index
+\springSample01\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2819522352.index
+\springSample2\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4250917511.index
+\springSample01\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3139847747.index
+\springSample1\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2289956981.index
+\springSample2\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3472448269.index
+\springSample4\src\main\java
+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\793333629.index
+\springSample4\src\main\java

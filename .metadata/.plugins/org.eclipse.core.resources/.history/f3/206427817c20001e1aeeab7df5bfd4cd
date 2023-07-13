@@ -1,0 +1,11 @@
+package ssg.com.a.dao.impl;
+
+import org.springframework.stereotype.Repository;
+
+import ssg.com.a.dao.MemberDao;
+
+@Repository // = 저장소
+public class MemberDaoImpl implements MemberDao{
+	
+	// MyBatis 접근
+}

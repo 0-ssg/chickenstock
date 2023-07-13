@@ -1,0 +1,5 @@
+package ssg.com.a.service.impl;
+
+public class MemberServiceImpl {
+
+}

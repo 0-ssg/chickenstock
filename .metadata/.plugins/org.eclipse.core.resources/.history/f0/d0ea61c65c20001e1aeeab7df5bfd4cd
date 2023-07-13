@@ -1,0 +1,6 @@
+package dto;
+
+public class BbsParam {
+	private String choice;
+	private String search
+}

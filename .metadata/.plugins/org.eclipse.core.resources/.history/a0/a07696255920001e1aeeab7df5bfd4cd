@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Query -->
+<mapper namespace="mybatis.mapper">
+
+
+<insert id="addmember" parameterType="dto.MemberDto">
+	insert into member(id, pwd, name, email, auth)
+	values(#{id}, #{pwd}, #{name}, #{email}, 3)
+</insert>
+<!-- 1개의 row -->
+<select id="getMember" parameterType="java.lang.String"
+	resultType="dto.MemberDto">
+	select id, pwd, name, email, auth
+	from member
+	where id=#{id}
+</select>
+
+<!-- 다수의 row -->
+<select id="allMember" resultType="dto.MemberDto">
+	select id, pwd, name, email, auth
+	from member
+</select>
+
+<!-- delete -->
+<delete id="delMember" parameterType="dto.MemberDto">
+	delete
+	from member
+	where name=#{name}
+</delete>
+<!-- update -->
+</mapper>

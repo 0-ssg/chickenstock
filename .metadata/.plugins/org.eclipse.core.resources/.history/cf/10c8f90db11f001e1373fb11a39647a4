@@ -1,0 +1,12 @@
+package ssg.com.a.dto;
+
+public class studentDto {
+	
+	private String name;
+	private int age;
+	
+	public studentDto {
+	}
+	
+
+}

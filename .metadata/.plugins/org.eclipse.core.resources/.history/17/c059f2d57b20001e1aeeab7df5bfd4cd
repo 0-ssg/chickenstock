@@ -1,0 +1,7 @@
+package ssg.com.a.dao.impl;
+
+import ssg.com.a.dao.MemberDao;
+
+public class MemberDaoimpl implements MemberDao{
+
+}

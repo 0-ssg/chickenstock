@@ -1,0 +1,7 @@
+package ssg.com.a.dao;
+
+import org.springframework.stereotype.Service;
+
+public interface MemberDao {
+
+}
