@@ -56,7 +56,7 @@ tr {
 
 <h1>게시판</h1>
 <br>
-
+<a href="pdslist.do">자료실</a>
 <!-- <a href="calendarList.jsp">일정관리</a> -->
 
 <%

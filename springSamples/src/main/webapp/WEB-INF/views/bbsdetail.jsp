@@ -20,6 +20,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <style type="text/css">
 .center{
 	margin: auto;
@@ -58,7 +60,10 @@ th{
 	<td><%=dto.getTitle() %></td>	
 </tr>
 <tr>	
-	<td colspan="2" style="height: 300px; font-size: 120%"><%=dto.getContent() %></td>
+	<td colspan="2" style="height: 300px; font-size: 120%">
+		<textarea rows="12" readonly style="background-color: #ffffff; font-size: 20px" 
+cols="15" class="form-control" ><%=dto.getContent() %></textarea>
+	</td>
 </tr>
 </table>
 
@@ -66,13 +71,19 @@ th{
 
 <button type="button" onclick="answerBbs(<%=dto.getSeq() %>)">답글</button>
 
-<button type="button" onclick="updateBbs(<%=dto.getSeq() %>)">글수정</button>
-
-<button type="button" onclick="deleteBbs(<%=dto.getSeq() %>)">글삭제</button>
+<%
+if(mem.getId().equals(dto.getId())){
+	%>
+	<button type="button" onclick="updateBbs(<%=dto.getSeq() %>)">글수정</button>
+	
+	<button type="button" onclick="deleteBbs(<%=dto.getSeq() %>)">글삭제</button>
+	<%
+}
+%>
 
 <script type="text/javascript">
 function answerBbs( seq ) {
-	location.href = "bbs?param=answer&seq=" + seq;	
+	location.href = "bbsanswer.do?seq=" + seq;	
 }
 function updateBbs(seq) {
     location.href = "bbsupdate.do?seq=" + seq;
@@ -84,11 +95,91 @@ function deleteBbs(seq) {
 
 </script>
 
+<br><br>
+<!-- 댓글 -->
+<div id="app" class="container">
+<form action="commentWriteAf.do" method="post">
+<input type="hidden" name="seq" value="<%=dto.getSeq() %>">
+<input type="hidden" name="id" value="<%=mem.getId() %>">
 
-</div>
+<table>
+<col width="1500px"><col width="150px">
+<tr>
+	<td>comment</td>
+	<td style="padding-left: 30px">올리기</td>
+</tr>
+<tr>
+	<td>
+		<textarea rows="3" class="form-control" name="content"></textarea>
+	</td>
+	<td style="padding-left: 30px ">
+		<button type="submit" class="btn btn-primary btn-block p-4">완료</button>
+	</td>
+</tr>
+</table>
 
+</form>
+<br><br>
+
+<table class="table table-sm">
+<col width="500"><col width="500">
+
+<tbody id="tbody">
+</tbody>
+
+</table>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		url:"commentList.do",
+		type:"get",
+		data:{seq:<%=dto.getSeq() %>},
+		success: function(list){
+			/*
+			alert('success');
+			alert(JSON.stringify(list));
+			*/
+			/*
+			for(i = 0; i < list.length; i++){
+				list[i].seq
+				list[i].content
+			}
+			*/
+			
+			// tbody 태그안의 값을 모두 초기화 후 다시 게시
+			$("#tbody").html("");
+			
+			$.each(list, function(i, item){
+				let str = "<tr class='table-info'>"
+						+		"<td>작성자:" + item.id + "</td>"
+						+		"<td>작성일:" + item.wdate + "</td>"
+						+	"</tr>"
+						+	"<tr>"
+						+		"<td colspan='2'>" + item.content + "</td>"
+						+	"</tr>";
+				$("#tbody").append(str);
+			});
+		},
+		error:function(){
+			alert('error');
+		}
+		
+	});
+	
+})
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

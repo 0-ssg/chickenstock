@@ -34,7 +34,6 @@ if(login != null && login.equals("") == false){
 	}else{
 		%>
 		<script>
-		alert("로그인 완료");
 		location.href = "bbslist.do";
 		</script>
 		<%	
@@ -76,6 +75,26 @@ if(bbsupdate != null && bbsupdate.equals("") == false){
 		alert("수정 실패했습니다.");
 		location.href = "bbsdetail.do?seq=" +<%= seq %>";
 		</script>
+		<%
+	}
+}
+
+String bbsanswer = (String)request.getAttribute("bbsanswer");
+if(bbsanswer != null && bbsanswer.equals("") == false){
+	if(bbsanswer.equals("BBSANSWER_YES")){
+		%>
+		<script>
+		alert('답글입력 성공!');
+		location.href = "bbslist.do";
+		</script>
+		<%
+	}else if(bbsanswer.equals("BBSANSWER_NO")){
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		%>
+		<script>
+		alert('답글입력 실패~');
+		location.href = "bbsanswer.do?seq=" + <%=seq %>;
+		</script>	
 		<%
 	}
 }
