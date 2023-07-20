@@ -1,1 +1,1 @@
-# chickenstock
+# [KDT] Team ChikenStock semi project
