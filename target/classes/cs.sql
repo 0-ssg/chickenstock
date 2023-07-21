@@ -1,3 +1,15 @@
+create database csdb;
+use csdb;
+use mydb;
+show TABLES;
+
+select * from users
+select * from news
+select * from news_comment
+select * from stocks
+select * from stocks_comment
+
+
 CREATE TABLE users (
   user_id VARCHAR(100) PRIMARY KEY,
   user_name VARCHAR(100) NOT NULL,
@@ -9,6 +21,11 @@ CREATE TABLE users (
   nick_name VARCHAR(50) UNIQUE NOT NULL,
   auth TINYINT NOT NULL
 );
+alter table users add email VARCHAR(255) after phone_number;
+insert into users(user_id, user_name, password, birthday, sex, phone_number, address, nick_name, auth)
+values('asd', '홍길동', '123', null, 'man', '010-1111-1111', '부산', '의적', 0);
+delete from users
+where user_id = 'asd';
 
 CREATE TABLE stocks (
   stock_number int PRIMARY KEY,
@@ -70,6 +87,8 @@ drop table if exists news_comment;
 
 alter table news_comment 
 add foreign key(user_id) references users(user_id);
+alter table news_comment
+ADD FOREIGN KEY (post_num) REFERENCES news(seq)
 
 ALTER TABLE stocks_comment 
 ADD FOREIGN KEY(user_id) REFERENCES users(user_id);
