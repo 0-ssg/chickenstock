@@ -1,15 +1,13 @@
 <%@page import="ssg.com.a.dto.NewsParam"%>
 <%@page import="ssg.com.a.dto.NewsDto"%>
-<%@page import="ssg.com.a.dto.BbsParam"%>
 <%@page import="util.BbsUtil"%>
 <%@page import="ssg.com.a.dto.MemberDto"%>
-<%@page import="ssg.com.a.dto.BbsDto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%
-	List<NewsDto> list = (List)request.getAttribute("bbslist");
+	List<NewsDto> list = (List)request.getAttribute("newslist");
 	int pageBbs = (Integer)request.getAttribute("pageBbs");
 	
 	NewsParam param = (NewsParam)request.getAttribute("param");
@@ -76,33 +74,33 @@ if(list == null || list.size() == 0){
 }else{
 	
 	for(int i = 0;i < list.size(); i++){
-		NewsDto bbs = list.get(i);
+		NewsDto news = list.get(i);
 		%>
 		<tr>
 			<td><%=i + 1 %></td>
 			
 			<%
-			if(bbs.getDel() == 0){
+			if(news.getDel() == 0){
 				%>				
 				<td style="text-align: left;">
-					<a href="bbsdetail.do?seq=<%=bbs.getSeq() %>">
-						<%-- <%=BbsUtil.arrow(bbs.getDepth()) %> --%>
-						<%=BbsUtil.titleDot(bbs.getTitle()) %>
+					<a href="newsdetail.do?seq=<%=news.getSeq() %>">
+						<%-- <%=BbsUtil.arrow(news.getDepth()) %> --%>
+						<%=BbsUtil.titleDot(news.getTitle()) %>
 					</a>
 				</td>
 				<% 
 			}else{
 			%>
 				<td style="text-align: left;">
-					<%-- <%=BbsUtil.arrow(bbs.getDepth()) %> --%>
+					<%-- <%=BbsUtil.arrow(news.getDepth()) %> --%>
 					<font color="#ff0000"> ****** 이 글은 작성자에 의해서 삭제되었습니다</font>
 				</td>			
 			<%
 			}
 			%>
 			
-			<td><%=bbs.getViews() %></td>
-			<td><%=bbs.getWrite_id() %></td>
+			<td><%=news.getViews() %></td>
+			<td><%=news.getWrite_id() %></td>
 		</tr>
 		<% 
 	}
@@ -120,7 +118,7 @@ if(list == null || list.size() == 0){
 </div>
 
 <br><br>
-<a href="bbswrite.do">글쓰기</a>
+<a href="newswrite.do">글쓰기</a>
 </div>
 
 <br><br>
@@ -149,7 +147,7 @@ function searchBtn() {
 		return;
 	}
 	*/
-	location.href = "bbslist.do?choice=" + choice + "&search=" + search;
+	location.href = "newslist.do?choice=" + choice + "&search=" + search;
 }
 
 $("#pagination").twbsPagination({
@@ -166,7 +164,7 @@ $("#pagination").twbsPagination({
 		let choice = $("#choice").val();
 		let search = $("#search").val();
 
-		location.href = "bbslist.do?choice=" + choice + "&search=" + search + "&pageNumber=" + (page - 1);
+		location.href = "newslist.do?choice=" + choice + "&search=" + search + "&pageNumber=" + (page - 1);
 	}
 });
 </script>

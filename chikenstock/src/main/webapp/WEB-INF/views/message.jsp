@@ -21,13 +21,13 @@ if(login != null && login.equals("") == false){
 	}
 }
 
-String bbswrite = (String)request.getAttribute("newswrite");
-if(bbswrite != null && !bbswrite.equals("")){
-	if(bbswrite.equals("BBS_ADD_OK")){
+String newswrite = (String)request.getAttribute("newswrite");
+if(newswrite != null && !newswrite.equals("")){
+	if(newswrite.equals("NEWS_ADD_OK")){
 		%>
 		<script type="text/javascript">
 		alert("성공적으로 작성되었습니다");
-		location.href = "bbslist.do";
+		location.href = "newslist.do";
 		</script>
 		<%
 	}
@@ -35,48 +35,48 @@ if(bbswrite != null && !bbswrite.equals("")){
 		%>
 		<script type="text/javascript">
 		alert("다시 작성해 주십시오");
-		location.href = "bbswrite.do";
+		location.href = "newswrite.do";
 		</script>
 		<%
 	}
 }
 
-String bbsupdate = (String)request.getAttribute("newsupdate");
-if(bbsupdate != null && bbsupdate.equals("") == false){
-	if(bbsupdate.equals("BBSUPDATE_YES")){
+String newsupdate = (String)request.getAttribute("newsupdate");
+if(newsupdate != null && newsupdate.equals("") == false){
+	if(newsupdate.equals("NEWSUPDATE_YES")){
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		%>
 		<script>
 		alert("수정되었습니다.");
-		location.href = "bbsdetail.do?seq=" + <%= seq %>;
+		location.href = "newsdetail.do?seq=" + <%= seq %>;
 		</script>
 		<%
-	}else if(bbsupdate.equals("BBSUPDATE_NO")){
+	}else if(newsupdate.equals("NEWSUPDATE_NO")){
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		%>
 		<script>
 		alert("수정 실패했습니다.");
-		location.href = "bbsdetail.do?seq=" +<%= seq %>";
+		location.href = "newsdetail.do?seq=" +<%= seq %>";
 		</script>
 		<%
 	}
 }
-String bbsdelete = (String)request.getAttribute("newsdelete");
-if(bbsdelete != null && bbsdelete.equals("") == false){
-	if(bbsdelete.equals("BBSDELETE_YES")){
+String newsdelete = (String)request.getAttribute("newsdelete");
+if(newsdelete != null && newsdelete.equals("") == false){
+	if(newsdelete.equals("NEWSDELETE_YES")){
 
 		%>
 		<script>
 	    alert('글 삭제 성공!');
-	    location.href = "bbslist.do";
+	    location.href = "newslist.do";
 		</script>
 		<%
-	}else if(bbsdelete.equals("BBSDELETE_NO")){
+	}else if(newsdelete.equals("NEWSDELETE_NO")){
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		%>
 		<script>
 	    alert('글 삭제 실패~');
-	    location.href = "bbsdetail.do?seq=" + <%=seq %>;
+	    location.href = "newsdetail.do?seq=" + <%=seq %>;
 		</script>
 		<%		
 	}

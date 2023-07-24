@@ -72,9 +72,9 @@ td{
 <%
 if(login != null && login.getAuth() == 0){
 	%>
-	<button type="button" class="btn btn-primary" onclick="updateBbs(<%=dto.getSeq() %>)">글수정</button>
+	<button type="button" class="btn btn-primary" onclick="updatenews(<%=dto.getSeq() %>)">글수정</button>
 	
-	<button type="button" class="btn btn-primary" onclick="deleteBbs(<%=dto.getSeq() %>)">글삭제</button>
+	<button type="button" class="btn btn-primary" onclick="deletenews(<%=dto.getSeq() %>)">글삭제</button>
 	<%	
 }
 %>
@@ -92,14 +92,14 @@ $(document).ready(function(){
 	$("#content").attr("rows", fontcount + contentRowCount + 2);
 })
 
-function answerBbs( seq ) {
-	location.href = "bbsanswer.do?seq=" + seq;	
+function answernews( seq ) {
+	location.href = "newsanswer.do?seq=" + seq;	
 }
-function updateBbs( seq ) {
-	location.href = "bbsupdate.do?seq=" + seq;
+function updatenews( seq ) {
+	location.href = "newsupdate.do?seq=" + seq;
 }
-function deleteBbs( seq ) {
-	location.href = "bbsdelete.do?seq=" + seq;
+function deletenews( seq ) {
+	location.href = "newsdelete.do?seq=" + seq;
 }
 
 </script>
