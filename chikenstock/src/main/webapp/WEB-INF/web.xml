@@ -21,7 +21,6 @@
   		<param-name>contextConfigLocation</param-name>
   		<param-value>
   			/WEB-INF/spring/servlet-context.xml <!-- web.xml에서 servlet-context.xml 읽음 -->
-  			/WEB-INF/spring/file-context.xml
   		</param-value>
   	</init-param>
   	
