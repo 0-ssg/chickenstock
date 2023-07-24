@@ -1,9 +1,0 @@
-INDEX VERSION 1.134+D:\SpringFrameworkSamples\.metadata\.plugins\org.eclipse.jdt.core
-3426712919.index
-2321974190.index
-501908064.index
-1426523779.index
-1900098624.index
-1865797976.index
-2160205770.index
-1197519833.index
