@@ -10,4 +10,6 @@ public interface PdsService {
 	List<PdsDto> pdslist();
 	
 	boolean uploadPds(PdsDto pds);
+	
+	PdsDto getPds(int seq); // 다운로드
 }

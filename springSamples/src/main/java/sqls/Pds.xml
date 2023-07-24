@@ -15,4 +15,11 @@
 	insert into pds(id, title, content, filename, newfilename, readcount, downcount, regdate)
 	values(#{id}, #{title}, #{content}, #{filename}, #{newfilename}, 0, 0, now())
 </insert>
+
+<select id="getPds" parameterType="java.lang.Integer" resultType="ssg.com.a.dto.PdsDto">
+	select seq, id, title, content, filename, newfilename,
+		readcount, downcount, regdate
+	from pds
+	where seq=#{seq}
+</select>
 </mapper>

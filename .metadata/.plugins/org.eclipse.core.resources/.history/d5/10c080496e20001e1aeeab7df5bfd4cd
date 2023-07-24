@@ -1,4 +1,0 @@
-# db setting
-
-jdbc.driverClassname=com.mysql.cj.jdbc.Driver
-

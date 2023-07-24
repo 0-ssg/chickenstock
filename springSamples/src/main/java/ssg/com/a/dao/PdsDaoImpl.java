@@ -27,6 +27,12 @@ public class PdsDaoImpl implements PdsDao{
 		// TODO Auto-generated method stub
 		return session.insert(ns + "uploadPds", pds);
 	}
+
+	// 다운로드
+	@Override
+	public PdsDto getPds(int seq) {
+		return session.selectOne(ns + "getPds", seq);
+	}
 	
 	
 	

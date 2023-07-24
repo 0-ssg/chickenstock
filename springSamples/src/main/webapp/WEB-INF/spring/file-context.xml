@@ -12,7 +12,14 @@
 	</bean>
 	
 	<!-- download -->
+	<bean id="downloadView" class="util.DownloadView"></bean>
+	<!-- DownloadView downloadView = new DownloadView -->
 	
+	<bean id="downloadResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order">
+			<value>0</value>
+		</property>
+	</bean>
 	
 </beans>
 

@@ -115,6 +115,10 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\SpringFrameworkSamples\TeamCS"/>
+			<item value="D:\SpringFrameworkSamples\TeamChikenStock"/>
+			<item value="D:\TeamChikenStock\chickenstock\chikenstock"/>
+			<item value="D:\springProject"/>
 			<item value="D:\SpringFrameworkSamples\springSample1"/>
 		</list>
 	</section>

@@ -53,8 +53,10 @@ public class BbsServiceImpl implements BbsService{
 	public boolean bbsanswer(BbsDto dto) {
 		try {
 	        // Increase the step of existing replies by 1
+			// 기존의 답글의 단계를 1씩 늘림
 	        dao.bbsanswer(dto);
 	        // Insert the new reply with increased step and depth
+	        // 증가된 단계와 깊이로 새 답글을 삽입
 	        dao.bbsanswerAf(dto);
 	        return true;
 	    } catch (Exception e) {

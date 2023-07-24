@@ -23,7 +23,11 @@ public class PdsServiceImpl implements PdsService{
 	public boolean uploadPds(PdsDto pds) {
 		return dao.uploadPds(pds)>0;
 	}
-	
-	
-	
+
+	// 다운로드
+	@Override
+	public PdsDto getPds(int seq) {
+		return dao.getPds(seq);
+	}
+
 }

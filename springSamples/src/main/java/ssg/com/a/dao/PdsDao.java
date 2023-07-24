@@ -9,4 +9,6 @@ public interface PdsDao {
 	List<PdsDto> pdslist();
 	
 	int uploadPds(PdsDto pds);
+	
+	PdsDto getPds(int seq); // 다운로드
 }

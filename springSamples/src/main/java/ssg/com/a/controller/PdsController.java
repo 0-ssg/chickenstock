@@ -96,6 +96,37 @@ public class PdsController {
 		
 		return "redirect:/pdslist.do";
 	}
+	
+	@GetMapping("pdsdetail.do")
+	public String pdsdetail(int seq, Model model) {
+		System.out.println("PdsController pdsdetail() " + new Date());
+		
+		PdsDto pds = service.getPds(seq);
+		model.addAttribute("pds", pds);
+		
+		return "pdsdetail";
+	}
+	// 다운로드
+	//@GetMapping("filedownload.do")
+	@PostMapping("filedownload.do")
+	public String filedownload(int seq, String newfilename, String filename,
+								HttpServletRequest request, Model model) {
+		// 경로
+		String fupload = request.getServletContext().getRealPath("/upload");
+		//String fupload = "d:\\tmp";
+		
+		// 다운로드를 받을 파일
+		File downloadFile = new File(fupload + "/" + newfilename);
+		
+		model.addAttribute("downloadFile", downloadFile);
+		model.addAttribute("filename", filename);	//원본 파일명
+		model.addAttribute("seq", seq);
+		
+		// file-context.xml에 있는 설정에 의해 DownloadView.java로 넘겨줄 수 있음
+		// 설정 부분 >> <bean id="downloadView" class="util.DownloadView"></bean>
+		return "downloadView";
+		
+	}
 }
 
 
