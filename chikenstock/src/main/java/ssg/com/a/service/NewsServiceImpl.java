@@ -17,38 +17,38 @@ public class NewsServiceImpl implements NewsService{
 	NewsDao dao;
 
 	@Override
-	public List<NewsDto> bbslist(NewsParam param) {		
-		return dao.bbslist(param);
+	public List<NewsDto> newslist(NewsParam param) {		
+		return dao.newslist(param);
 	}
 
 	@Override
-	public int getAllBbs(NewsParam param) {		
-		return dao.getAllBbs(param);
+	public int getAllnews(NewsParam param) {		
+		return dao.getAllnews(param);
 	}
 
 	@Override
-	public boolean bbswrite(NewsDto dto) {		
-		return dao.bbswrite(dto)>0?true:false;
+	public boolean newswrite(NewsDto dto) {		
+		return dao.newswrite(dto)>0?true:false;
 	}
 	
 	@Override
-	public NewsDto bbsdetail(int seq) {		
-		return dao.bbsdetail(seq);
+	public NewsDto newsdetail(int seq) {		
+		return dao.newsdetail(seq);
 	}
 	
 	@Override
-	public NewsDto bbsget(int seq) {
-		return dao.bbsget(seq);
+	public NewsDto newsget(int seq) {
+		return dao.newsget(seq);
 	}
 
 	@Override
-	public boolean bbsupdate(NewsDto dto) {
-		return dao.bbsupdate(dto)>0?true:false;
+	public boolean newsupdate(NewsDto dto) {
+		return dao.newsupdate(dto)>0?true:false;
 	}
 	
 	@Override
-	public boolean bbsdelete(NewsDto dto) {
-		return dao.bbsdelete(dto)>0;
+	public boolean newsdelete(NewsDto dto) {
+		return dao.newsdelete(dto)>0;
 	}
 
 	@Override

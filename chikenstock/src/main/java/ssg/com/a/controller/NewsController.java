@@ -19,85 +19,85 @@ public class NewsController {
 	@Autowired
 	NewsService service;
 	
-	@GetMapping("bbslist.do")
-	public String bbslist(NewsParam param, Model model) {
-		System.out.println("NewsController bbslist() " + new Date());
+	@GetMapping("newslist.do")
+	public String newslist(NewsParam param, Model model) {
+		System.out.println("NewsController newslist() " + new Date());
 		System.out.println(param.toString());
 		
 		if(param == null || param.getSearch() == null || param.getChoice() == null) {
 			param = new NewsParam("", "", 0);
 		}
 		
-		List<NewsDto> list = service.bbslist(param);
+		List<NewsDto> list = service.newslist(param);
 				
 		// 글의 총수
-		int count = service.getAllBbs(param);	
+		int count = service.getAllnews(param);	
 		// 페이지를 계산
-		int pageBbs = count / 10;	
+		int pagenews = count / 10;	
 		if((count % 10) > 0) {
-			pageBbs = pageBbs + 1;	
+			pagenews = pagenews + 1;	
 		}		
 		
-		model.addAttribute("bbslist", list);
-		model.addAttribute("pageBbs", pageBbs);
+		model.addAttribute("newslist", list);
+		model.addAttribute("pagenews", pagenews);
 		model.addAttribute("param", param);
 		
-		model.addAttribute("content", "bbs/bbslist");
+		model.addAttribute("content", "news/newslist");
 		
 		return "main";
 	}	
 	
-	@GetMapping("bbswrite.do")
-	public String bbswrite(Model model) {
-		System.out.println("NewsController bbswrite() " + new Date());
+	@GetMapping("newswrite.do")
+	public String newswrite(Model model) {
+		System.out.println("NewsController newswrite() " + new Date());
 		
-		model.addAttribute("content", "bbs/bbswrite");
+		model.addAttribute("content", "news/newswrite");
 		return "main";
 	}
 	
-	@PostMapping("bbswriteAf.do")
-	public String bbswriteAf(NewsDto dto, Model model) {
-		System.out.println("NewsController bbswriteAf() " + new Date());
+	@PostMapping("newswriteAf.do")
+	public String newswriteAf(NewsDto dto, Model model) {
+		System.out.println("NewsController newswriteAf() " + new Date());
 		
-		boolean isS = service.bbswrite(dto);
-		String newswrite = "BBS_ADD_OK";
+		boolean isS = service.newswrite(dto);
+		String newswrite = "NEWS_ADD_OK";
 		if(isS == false) {
-			newswrite = "BBS_ADD_NO";
+			newswrite = "NEWS_ADD_NO";
 		}
 		model.addAttribute("newswrite", newswrite);
 		
 		return "message";
 	}
 	
-	@GetMapping("bbsdetail.do")
-	public String bbsdetail(int seq, Model model) {
-		System.out.println("NewsController bbsdetail() " + new Date());
+	@GetMapping("newsdetail.do")
+	public String newsdetail(int seq, Model model) {
+		System.out.println("NewsController newsdetail() " + new Date());
 		
-		NewsDto dto = service.bbsdetail(seq);		
+		NewsDto dto = service.newsdetail(seq);		
 		model.addAttribute("newsdto", dto);
 		
-		model.addAttribute("content", "bbs/bbsdetail");
+		model.addAttribute("content", "news/newsdetail");
 		return "main";
 	}
 	
-	@GetMapping("bbsupdate.do")
-	public String bbsupdate(int seq, Model model) {
-		System.out.println("NewsController bbsupdate() " + new Date());
+	@GetMapping("newsupdate.do")
+	public String newsupdate(int seq, Model model) {
+		System.out.println("NewsController newsupdate() " + new Date());
 		
-		NewsDto dto = service.bbsget(seq);
+		NewsDto dto = service.newsget(seq);
 
 		model.addAttribute("newsDto", dto);
 
 		
-		model.addAttribute("content", "bbs/bbsupdate");
+		model.addAttribute("content", "news/newsupdate");
 		return "main";
 	}
 	
-	@PostMapping("bbsupdateAf.do")
-	public String bbsupdateAf(NewsDto dto, Model model) {
-		System.out.println("NewsController bbsupdateAf() " + new Date());
+	@PostMapping("newsupdateAf.do")
+	public String newsupdateAf(NewsDto dto, Model model) {
+		System.out.println("NewsController newsupdateAf() " + new Date());
 		
-		boolean isS = service.bbsupdate(dto);
+		boolean isS = service.newsupdate(dto);
 		
 		String message = "BBSUPDATE_YES";
 		if (isS == false) {
@@ -116,9 +116,9 @@ public class NewsController {
 		
 		boolean isS = service.bbsdelete(dto);
 		
-		String message = "BBSDELETE_YES";
+		String message = "NEWSDELETE_YES";
 		if(isS == false) {
-			message = "BBSDELETE_YES";
+			message = "NEWSDELETE_YES";
 		}
 		model.addAttribute("newsdelete", message);
 		

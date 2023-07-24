@@ -17,7 +17,7 @@
 <body>
 <div align="center">
     <h2>글 수정</h2>
-    <form action="bbsupdateAf.do" method="post">
+    <form action="newsupdateAf.do" method="post">
         <input type="hidden" name="seq" value="<%=dto.getSeq() %>">
         <table border="1">
             <col width="200"><col width="500">

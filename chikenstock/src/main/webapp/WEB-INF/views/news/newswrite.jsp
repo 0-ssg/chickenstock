@@ -85,7 +85,7 @@ $(document).ready(function(){
 			return;
 		}
 		
-		$("#frm").attr("action", "bbswriteAf.do").submit();		
+		$("#frm").attr("action", "newswriteAf.do").submit();		
 	});
 	
 });
